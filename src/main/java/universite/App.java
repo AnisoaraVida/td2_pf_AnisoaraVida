@@ -33,9 +33,10 @@ public class App {
          boolean rtr = true;
         for (Matiere m : etudiant.notes().keySet()){
             if(etudiant.notes().containsKey(m)){
-                return true;
+                 rtr = true;
             }
         }
+        return rtr;
     };
 
 
