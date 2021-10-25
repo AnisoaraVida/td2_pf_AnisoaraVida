@@ -1,6 +1,7 @@
 package universite;
 
 
+import java.lang.ref.PhantomReference;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -28,7 +29,15 @@ public class App {
 
     }
 
-    //Predicate<Etudiant> aDEF = etudiant -> etudiant.notes().forEach( m -> );
+    public static final Predicate<Etudiant> aDEF = etudiant -> {
+         boolean rtr = true;
+        for (Matiere m : etudiant.notes().keySet()){
+            if(etudiant.notes().containsKey(m)){
+                return true;
+            }
+        }
+    };
+
 
 
     public static void afficheSi(String entete, Predicate<Etudiant> pred, Annee annee){
